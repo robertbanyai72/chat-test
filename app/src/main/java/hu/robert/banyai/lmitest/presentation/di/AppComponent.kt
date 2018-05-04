@@ -6,13 +6,14 @@ import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import dagger.android.support.AndroidSupportInjectionModule
 import hu.robert.banyai.lmitest.data.di.DataModule
+import hu.robert.banyai.lmitest.deivce.di.DeviceModule
 import hu.robert.banyai.lmitest.domain.di.DomainModule
 import hu.robert.banyai.lmitest.presentation.app.App
 import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [(
-        AndroidSupportInjectionModule::class), (MainModule::class), (AppModule::class), (DataModule::class), (DomainModule::class), (BuildersModule::class)])
+        AndroidSupportInjectionModule::class), (MainModule::class), (AppModule::class), (DataModule::class), (DomainModule::class), (DeviceModule::class), (BuildersModule::class)])
 interface AppComponent : AndroidInjector<DaggerApplication> {
 
     fun inject(app: App)

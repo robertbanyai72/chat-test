@@ -15,6 +15,7 @@ import hu.robert.banyai.lmitest.presentation.common.SpaceItemDecoration
 import hu.robert.banyai.lmitest.presentation.common.extension.clear
 import hu.robert.banyai.lmitest.presentation.common.extension.setVisibility
 import kotlinx.android.synthetic.main.activity_main.*
+import lmitest.banyai.robert.com.logmeintest.R.id.*
 import javax.inject.Inject
 
 
@@ -59,9 +60,11 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, it.throwable.message, Toast.LENGTH_LONG).show()
                 }
                 is MainViewState.DisconnectState -> {
+                    imgStatusBadge.setImageResource(R.drawable.offline_state_badge)
                     containerOffline.setVisibility(true)
                 }
                 is MainViewState.ConnectState -> {
+                    imgStatusBadge.setImageResource(R.drawable.online_state_badge)
                     containerOffline.setVisibility(false)
                 }
             }

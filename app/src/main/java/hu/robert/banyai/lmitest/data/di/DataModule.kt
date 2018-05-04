@@ -8,6 +8,7 @@ import hu.robert.banyai.lmitest.data.client.ImageLoaderImpl
 import hu.robert.banyai.lmitest.data.client.SocketClient
 import hu.robert.banyai.lmitest.data.client.SocketClientImpl
 import hu.robert.banyai.lmitest.data.repository.SocketRepository
+import hu.robert.banyai.lmitest.domain.resource.ResourceHelper
 import java.net.URI
 import javax.inject.Named
 import javax.inject.Singleton
@@ -36,7 +37,7 @@ class DataModule {
 
     @Singleton
     @Provides
-    fun provideSocketClient(@Named("socketURI") socketURI: URI): SocketClient {
-        return SocketClientImpl(socketURI)
+    fun provideSocketClient(@Named("socketURI") socketURI: URI, resourceHelper: ResourceHelper): SocketClient {
+        return SocketClientImpl(socketURI, resourceHelper)
     }
 }

@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LogMeInTest</string>
+    <string name="offline">You are offline!</string>
+    <string name="reconnect">Reconnect!</string>
+    <string name="input_message_hint">Type your message here…</string>
+    <string name="joined">Somebody joined to the conversation.</string>
 </resources>

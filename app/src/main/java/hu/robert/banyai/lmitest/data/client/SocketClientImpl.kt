@@ -5,6 +5,8 @@ import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import hu.robert.banyai.lmitest.data.model.SocketState
+import hu.robert.banyai.lmitest.domain.resource.ResourceHelper
+import lmitest.banyai.robert.com.logmeintest.R
 import org.java_websocket.client.WebSocketClient
 import org.java_websocket.handshake.ServerHandshake
 import timber.log.Timber
@@ -12,8 +14,9 @@ import java.lang.Exception
 import java.net.URI
 import javax.inject.Inject
 
-class SocketClientImpl @Inject constructor(uri: URI)
-    : WebSocketClient(uri), SocketClient {
+class SocketClientImpl @Inject constructor(
+        uri: URI,
+        val resourceHelper: ResourceHelper) : WebSocketClient(uri), SocketClient {
 
     private val subject = PublishSubject.create<SocketState>()
 
@@ -61,7 +64,7 @@ class SocketClientImpl @Inject constructor(uri: URI)
                     it.onError(ex)
                 }
             } else {
-                it.onError(Throwable("You are offline!"))
+                it.onError(Throwable(resourceHelper.getString(R.string.offline)))
             }
         })
     }

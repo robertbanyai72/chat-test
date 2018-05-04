@@ -14,8 +14,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:text="You are offline!"
+            android:layout_margin="@dimen/container_offline_margin"
+            android:text="@string/offline"
             android:textColor="@android:color/white" />
 
         <TextView
@@ -25,8 +25,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_margin="10dp"
-            android:text="Reconnect!"
+            android:layout_margin="@dimen/container_offline_margin"
+            android:text="@string/reconnect"
             android:textColor="@android:color/holo_orange_dark" />
 
     </RelativeLayout>
@@ -47,20 +47,31 @@
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
+            android:layout_height="@dimen/separator_height"
             android:background="@android:color/darker_gray" />
 
         <EditText
             android:id="@+id/edtMessage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_margin="@dimen/edt_input_margin"
+            android:layout_toEndOf="@+id/imgStatusBadge"
             android:layout_toLeftOf="@+id/imgSend"
+            android:layout_toRightOf="@+id/imgStatusBadge"
             android:layout_toStartOf="@+id/imgSend"
             android:background="@drawable/rounded_input_edit_text"
-            android:hint="Type your message here..."
+            android:hint="@string/input_message_hint"
             android:textColor="@android:color/black"
-            android:textSize="14sp" />
+            android:textSize="@dimen/edt_input_text_size" />
+
+        <ImageView
+            android:id="@+id/imgStatusBadge"
+            android:layout_width="@dimen/status_badge_size"
+            android:layout_height="@dimen/status_badge_size"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/status_badge_margin"
+            android:layout_marginStart="@dimen/status_badge_margin"
+            android:src="@drawable/offline_state_badge" />
 
         <ImageView
             android:id="@+id/imgSend"
@@ -69,8 +80,8 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="@dimen/btn_send_margin"
+            android:layout_marginRight="@dimen/btn_send_margin"
             android:src="@drawable/ic_send" />
     </RelativeLayout>
 

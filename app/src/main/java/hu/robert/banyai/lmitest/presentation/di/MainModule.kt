@@ -7,6 +7,7 @@ import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
 import hu.robert.banyai.lmitest.data.client.ImageLoader
 import hu.robert.banyai.lmitest.data.rx.SchedulersFacade
+import hu.robert.banyai.lmitest.domain.resource.ResourceHelper
 import hu.robert.banyai.lmitest.domain.usecase.SocketConnectUseCase
 import hu.robert.banyai.lmitest.domain.usecase.SocketDisconnectUseCase
 import hu.robert.banyai.lmitest.domain.usecase.SocketReconnectUseCase
@@ -25,8 +26,8 @@ class MainModule {
     }
 
     @Provides
-    fun provideSpaceItemDecoration(): SpaceItemDecoration {
-        return SpaceItemDecoration()
+    fun provideSpaceItemDecoration(resourceHelper: ResourceHelper): SpaceItemDecoration {
+        return SpaceItemDecoration(resourceHelper)
     }
 
     @Provides
